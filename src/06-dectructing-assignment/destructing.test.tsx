@@ -1,15 +1,6 @@
 import React from "react";
+import {ManType} from "./Destructing";
 
-type ManType = {
-    name: string
-    age: number
-    lessons: Array<{title: string}>
-    address: {
-        street: {
-            title: string
-        }
-    }
-}
 
 
 let props: ManType

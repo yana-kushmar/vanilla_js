@@ -1,9 +1,9 @@
 import React from "react";
 
-type ManType = {
+export type ManType = {
     name: string
     age: number
-    lessons: Array<{title: string}>
+    lessons: Array<{ title: string }>
     address: {
         street: {
             title: string
@@ -12,40 +12,28 @@ type ManType = {
 }
 
 
-let props: ManType
-beforeEach(() => {
-     props = {
-        name: "Yana",
-        age: 22,
-        lessons: [
-            {title: "1"},
-            {title: "2"},
-        ],
-        address: {
-            street: {
-                title: "bali street"
-            }
-        }
-    }
+type  PropsType = {
+    title: string
+    man: ManType
+    food: Array<string>
+    car: {model: string }
+}
 
-})
+export const ManComponents: React.FC<PropsType> = ({title, man, ...props}) => {
 
-test("", () => {
-
-    const {age, lessons} = props
-    const {title} = props.address.street
+    //const {title, man, ...restProps} = props
 
 
-    expect(age).toBe(22)
-    expect(lessons.length).toBe(2)
-
-    expect(title).toBe("bali street")
-
-
-})
-
-
-test("", () => {
-
-
-})
+    return (
+        <div>
+            <h1>{title}</h1>
+            <hr/>
+            <div>
+                {props.car.model}
+            </div>
+            <div>
+                {man.name}
+            </div>
+        </div>
+    )
+}
