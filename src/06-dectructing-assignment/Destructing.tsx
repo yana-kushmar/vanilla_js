@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 export type ManType = {
     name: string
@@ -19,9 +19,22 @@ type  PropsType = {
     car: {model: string }
 }
 
+function useYanaState(m:string) {
+    return [m, function (){}]
+}
+
+function useYanaState2(m:string) {
+    return {
+        message: m,
+        setMessage: function (){}
+    }
+}
+
 export const ManComponents: React.FC<PropsType> = ({title, man, ...props}) => {
 
     //const {title, man, ...restProps} = props
+
+const [message, setMessage] = useState("hello")
 
 
     return (
